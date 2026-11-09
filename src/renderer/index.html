@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Akari</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="topbar">
+    <a class="logo" href="#/" aria-label="Akari, inicio">
+      <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--accent)"/><path d="M16 6l9 20h-5l-1.3-3.2h-5.4L12 26H7zm0 8.6l-1.5 4.1h3z" fill="#000"/></svg>
+      <span>akari</span>
+    </a>
+    <nav id="mainnav">
+      <a href="#/" data-nav="home">Inicio</a>
+      <a href="#/explorar" data-nav="explorar">Explorar</a>
+      <a href="#/listas" data-nav="listas">Mi lista</a>
+      <a href="#/descargas" data-nav="descargas">Descargas</a>
+      <a href="#/historial" data-nav="historial">Historial</a>
+      <a href="#/web?n=Crunchyroll&amp;u=https%3A%2F%2Fwww.crunchyroll.com%2Fes" data-nav="crunchyroll" title="Ver Crunchyroll en línea con tu cuenta">Crunchyroll</a>
+    </nav>
+    <div class="topbar-right">
+      <span id="net-pill" class="net-pill" hidden>Sin conexión</span>
+      <label class="search">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M10 2a8 8 0 1 0 4.9 14.3l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0 0 10 2zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/></svg>
+        <input id="search" type="search" placeholder="Buscar" aria-label="Buscar en el catálogo">
+      </label>
+      <a class="icon-btn" href="#/ajustes" title="Ajustes" aria-label="Ajustes">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M19.4 13a7.6 7.6 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7.6 7.6 0 0 0-1.7-1L15 3.500h-4l-.4 2.500a7.6 7.600 0 0 0-1.700 1l-2.400-1-2 3.400 2 1.600a7.600 7.600 0 0 0 0 2l-2 1.600 2 3.400 2.400-1c.5.400 1.100.700 1.700 1l.4 2.500h4l.4-2.500c.6-.300 1.200-.600 1.700-1l2.400 1 2-3.400zM13 15.500a3.500 3.500 0 1 1 0-7 3.500 3.500 0 0 1 0 7z" transform="translate(-1 0)"/></svg>
+      </a>
+    </div>
+  </header>
+  <main id="view" tabindex="-1"></main>
+  <div id="toasts" role="status" aria-live="polite"></div>
+  <dialog id="confirm-dialog">
+    <form method="dialog">
+      <h2 id="confirm-title"></h2>
+      <p id="confirm-text"></p>
+      <div class="dialog-actions">
+        <button value="cancel" class="btn ghost">Cancelar</button>
+        <button value="ok" class="btn primary" id="confirm-ok">Aceptar</button>
+      </div>
+    </form>
+  </dialog>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

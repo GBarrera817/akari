@@ -1,0 +1,50 @@
+{
+  "name": "akari",
+  "productName": "Akari",
+  "version": "1.0.0",
+  "description": "Plataforma de streaming de animación con caché persistente, modo sin conexión y respaldos.",
+  "main": "src/main/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/",
+    "e2e": "node scripts/e2e.js",
+    "dist": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "github:castlabs/electron-releases#v44.9.3+wvcus",
+    "electron-builder": "26.18.0",
+    "playwright-core": "1.64.1"
+  },
+  "build": {
+    "appId": "local.akari.app",
+    "productName": "Akari",
+    "files": [
+      "src/**/*",
+      "package.json",
+      "!node_modules/ffmpeg-static/{*.md,*.txt,ffmpeg.LICENSE,ffmpeg.README}"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "Akari.exe"
+    },
+    "electronVersion": "44.9.3+wvcus",
+    "electronDownload": {
+      "mirror": "https://github.com/castlabs/electron-releases/releases/download/"
+    },
+    "asarUnpack": [
+      "node_modules/ffmpeg-static/**"
+    ]
+  },
+  "dependencies": {
+    "ffmpeg-static": "5.3.0"
+  }
+}
